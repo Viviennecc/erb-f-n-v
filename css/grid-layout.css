@@ -5,10 +5,10 @@
 }
 .container {
   display: grid;
-  min-height: 100vh;
-  /* grid-template-columns: 2fr 1fr; */
-  /* grid-template-rows: 50px 50px auto 50px; */
-  grid-template-areas: "header header header" "nav nav search" "main main aside" "main main aside" "main main aside" "main main aside" "main main aside" "main main aside" "main main aside" "footer footer footer";
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 header {
   background-color: black;
