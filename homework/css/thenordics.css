@@ -3,7 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Delicious Handrawn", Arial, sans-serif;
-  text-decoration: nonew;
+  text-decoration: none;
 }
 
 body {
@@ -12,7 +12,30 @@ body {
   align-items: center;
   min-height: 100vh;
   max-width: 100%;
+  background-color: #000; /* Base color behind the semi-transparent image */
   background: url(./nordicswalp.avif);
+  text-decoration: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Initial Background */
+  background: url("./nordicswalp.avif") no-repeat center/cover;
+
+  /* Control semi-transparency here */
+  opacity: 1;
+
+  z-index: -1;
+  /* This creates the smooth 2s cross-fade */
+  transition:
+    background-image 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
 }
 
 .main {
@@ -77,21 +100,25 @@ body {
 .icecon {
   height: 350px;
   /* position: absolute; */
+  transition: all 0.3s ease-in-out;
 }
 
 .fincon {
   height: 350px;
   /* position: absolute; */
+  transition: all 0.3s ease-in-out;
 }
 
 .swecon {
   height: 270px;
   /* position: absolute; */
+  transition: all 0.3s ease-in-out;
 }
 
 .norcon {
   height: 280px;
   /* position: absolute; */
+  transition: all 0.3s ease-in-out;
 }
 .norcon img {
   border-color: lightblue;
@@ -101,11 +128,29 @@ body {
   font-size: 50px;
   text-align: center;
 }
+.text-h1 h1,
+.inmidcon p {
+  transition:
+    color 0.3s ease-in-out,
+    font-size 0.3s ease-in-out;
+}
 
-/* When the body has an .icecon element being hovered, change the body background */
+/* 3. Update the hover states to transition the background layer */
+body:has(.icecon:hover)::before {
+  background-image: url(./icelandwalp.avif);
+}
+body:has(.fincon:hover)::before {
+  background-image: url(./finlandwalp.avif);
+}
+body:has(.swecon:hover)::before {
+  background-image: url(./swedenwalp.avif);
+}
+body:has(.norcon:hover)::before {
+  background-image: url(./norwaywalp.avif);
+}
+
+/* Existing Body:has logic remains the same, just removing background: url */
 body:has(.icecon:hover) {
-  max-width: 100%;
-  background: url(./icelandwalp.avif);
   cursor: pointer;
   .icecon p {
     color: #a0c4ff;
@@ -116,10 +161,8 @@ body:has(.icecon:hover) {
     font-size: 90px;
   }
 }
-/* When the body has an .fincon element being hovered, change the body background */
+
 body:has(.fincon:hover) {
-  max-width: 100%;
-  background: url(./finlandwalp.avif);
   cursor: pointer;
   .fincon p {
     color: #fff;
@@ -130,10 +173,8 @@ body:has(.fincon:hover) {
     font-size: 90px;
   }
 }
-/* When the body has an .swecon element being hovered, change the body background */
+
 body:has(.swecon:hover) {
-  max-width: 100%;
-  background: url(./swedenwalp.avif);
   cursor: pointer;
   .swecon p {
     color: #c2a9cd;
@@ -144,10 +185,8 @@ body:has(.swecon:hover) {
     font-size: 90px;
   }
 }
-/* When the body has an .norcon element being hovered, change the body background */
+
 body:has(.norcon:hover) {
-  max-width: 100%;
-  background: url(./norwaywalp.avif);
   cursor: pointer;
   .norcon p {
     color: #93dbc4;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to the nordicse</title>
+    <title>Welcome to the Nordics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,13 +11,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/index.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com" />
   </head>
   <body>
     <main>
@@ -28,7 +22,6 @@
               >The Nordics</a
             >
           </li>
-          <!-- <li><a href="#"></a>home</li> -->
           <li class="iceland">
             <a href="./iceland.html" target="incontent">iceland</a>
           </li>
@@ -43,6 +36,7 @@
           </li>
         </ul>
       </div>
+
       <div class="con">
         <article class="content">
           <iframe
@@ -50,46 +44,20 @@
             name="incontent"
             style="width: 100%; height: 100%; border: none"
             title="Main Content"
-          >
-          </iframe>
+          ></iframe>
         </article>
       </div>
+
       <div class="box-end">
-        <div class="end"><p>Welcome to the nordicse</p></div>
+        <div class="end">
+          <p>
+            <span id="footer-left">Welcome to the Nordics</span>
+            <span id="footer-right"></span>
+          </p>
+        </div>
       </div>
     </main>
-    <script>
-      // 1. Select the iframe and the footer text element
-      const iframe = document.querySelector('iframe[name="incontent"]');
-      const footerText = document.querySelector(".end p");
-
-      // 2. Listen for the 'load' event (fires whenever the src changes)
-      iframe.addEventListener("load", function () {
-        try {
-          // 3. Get the filename from the current iframe URL
-          const currentPath = iframe.contentWindow.location.pathname;
-          const fileName = currentPath.split("/").pop();
-
-          // 4. Update the text based on the file loaded
-          if (fileName === "iceland.html") {
-            footerText.innerText = "Welcome to Iceland";
-          } else if (fileName === "finland.html") {
-            footerText.innerText = "Welcome to Finland";
-          } else if (fileName === "sweden.html") {
-            footerText.innerText = "Welcome to Sweden";
-          } else if (fileName === "norway.html") {
-            footerText.innerText = "Welcome to Norway";
-          } else {
-            footerText.innerText = "Welcome to the Nordics";
-          }
-        } catch (e) {
-          // In case of cross-origin or local file restrictions
-          console.log(
-            "Could not read iframe path, ensure files are on the same server.",
-          );
-        }
-      });
-    </script>
+    <script src="./css/index.js"></script>
   </body>
 </html>
 <!-- height="1350px 1350px" -->
