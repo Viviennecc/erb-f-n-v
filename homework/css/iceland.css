@@ -8,6 +8,9 @@
   width: auto;
   /* background-position: center; */
 }
+html {
+  scroll-behavior: smooth;
+}
 .information,
 .basicinformatiom,
 .locationintroduction0,
@@ -565,3 +568,19 @@
   font-size: 60px;
 }
 /* end of locationintroduction3-1 */
+/* Style and position the button */
+.information {
+  position: relative;
+  min-height: 200px;
+} /* Parent */
+
+#nextBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Ensure it stays above other content */
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Optional: Smooth scrolling effect */
