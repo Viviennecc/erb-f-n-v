@@ -9,12 +9,13 @@ const Services = () => {
       <div className="services-center">
         {services.map((service) => {
           return (
-            <Service
-              icon={service.icon}
-              title={service.title}
-              text={service.text}
-              key={service.id}
-            />
+            // <Service
+            //   icon={service.icon}
+            //   title={service.title}
+            //   text={service.text}
+            //   key={service.id}
+            // />
+            <Service {...service} key={service.id} />
           );
         })}
       </div>
